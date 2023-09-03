@@ -86,17 +86,17 @@ Create table Detalle_Pedidos(
 	ID_Productos int
 );
 
-Create table Ventas(
-	ID_Venta int primary key identity(1,1),
-	FechaVenta date,
-	MontoVenta decimal(10,2),
-);
+	Create table Ventas(
+		ID_Venta int primary key identity(1,1),
+		FechaVenta date,
+		MontoVenta decimal(10,2),
+	);
 
-Create table Detalle_Ventas(
+create table Detalle_Ventas(
 	ID_Detalle_Venta int primary key identity(1,1),
 	Cantidad_Producto int,
-	ID_Pedido int,
-	ID_Venta int
+	ID_Producto int,
+	ID_Venta int
 );
 
 Create table Facturas(
@@ -119,7 +119,7 @@ alter table Empleados add foreign key (ID_Direcciones) references Direcciones(ID
 alter table Clientes add foreign key (ID_Direccion) references Direcciones(ID_Direcciones);
 alter table Proveedores add foreign key (ID_Direcion) references Direcciones(ID_Direcciones);
 alter table Pedidos add foreign key (ID_Proveedor) references Proveedores(ID_Proveedor);
-alter table Detalle_Pedidos add foreign key (ID_Pedidos) references Pedidos(ID_Pedidos);
+alter table Detalle_Ventas add foreign key (ID_Producto) references Productos(ID_Productos);
 alter table Detalle_Pedidos add foreign key (ID_Productos) references Productos(ID_Productos);
 alter table Detalle_Ventas add foreign key (ID_Pedido) references Pedidos(ID_Pedidos);
 alter table Detalle_Ventas add foreign key (ID_Venta) references Ventas(ID_Venta);
