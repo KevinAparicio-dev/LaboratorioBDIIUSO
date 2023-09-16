@@ -138,8 +138,3 @@ insert into Facturas values
   (8.75, 2.00, 132.39, 132.39, '45678901082431', 5, 5);
 
 select * from Facturas;
-
-
-	
-
-
